@@ -1,0 +1,1155 @@
+/* ===================================
+   南京大学介绍网站 - 样式表
+   =================================== */
+
+/* CSS变量 */
+:root {
+    --color-primary: #6B3FA0;       /* 南大紫 */
+    --color-primary-dark: #5A3490;
+    --color-primary-light: #8B5FC0;
+    --color-accent: #D4AF37;        /* 金色点缀 */
+    --color-accent-light: #E5C557;
+    
+    --color-bg-primary: #FFFFFF;
+    --color-bg-secondary: #F8F7FA;
+    --color-bg-dark: #1A1625;
+    
+    --color-text-primary: #1A1625;
+    --color-text-secondary: #6B6B7B;
+    --color-text-light: #FFFFFF;
+    
+    --font-display: 'Noto Serif SC', serif;
+    --font-body: 'Noto Sans SC', sans-serif;
+    
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(107, 63, 160, 0.08);
+    --shadow-md: 0 4px 20px rgba(107, 63, 160, 0.12);
+    --shadow-lg: 0 8px 40px rgba(107, 63, 160, 0.16);
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background: var(--color-bg-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ===================================
+   导航栏
+   =================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+}
+
+.logo-en {
+    font-size: 0.625rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-cta:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===================================
+   英雄区域
+   =================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        #6B3FA0 0%, 
+        #8B5FC0 25%, 
+        #A87FD0 50%, 
+        #D4AF37 100%);
+    opacity: 0.95;
+}
+
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212,175,55,0.2) 0%, transparent 40%);
+}
+
+.hero-content {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 0.875rem;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.badge-icon {
+    font-size: 1.25rem;
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+}
+
+.title-cn {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 0.2em;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 0.5rem;
+}
+
+.title-en {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.hero-motto {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--color-accent);
+    margin-bottom: 3rem;
+    letter-spacing: 0.3em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.5rem;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.3);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--color-primary);
+    border-color: white;
+}
+
+.btn-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    animation: bounce 2s infinite;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+    margin: 0 auto 0.5rem;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===================================
+   区块通用样式
+   =================================== */
+section {
+    padding: 6rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-number {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    margin: 0 auto;
+}
+
+/* ===================================
+   历史沿革
+   =================================== */
+.history-section {
+    background: var(--color-bg-secondary);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+.timeline-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.timeline-year {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    z-index: 1;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-item.highlight .timeline-year {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    transform: scale(1.1);
+}
+
+.timeline-content {
+    flex: 1;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin: 0 2rem;
+    transition: var(--transition);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-content h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+}
+
+/* ===================================
+   办学成就
+   =================================== */
+.achievements-section {
+    background: white;
+}
+
+.achievements-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.achievement-card {
+    background: var(--color-bg-secondary);
+    padding: 2.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.achievement-number {
+    margin-bottom: 1rem;
+}
+
+.number-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.number-unit {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin-left: 0.25rem;
+}
+
+.achievement-title {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.achievement-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.ranking-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.ranking-badge {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    min-width: 150px;
+}
+
+.badge-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.25rem;
+}
+
+.badge-label {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+}
+
+/* ===================================
+   学科建设
+   =================================== */
+.disciplines-section {
+    background: var(--color-bg-secondary);
+}
+
+.disciplines-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.discipline-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.discipline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.discipline-card.highlight {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+}
+
+.discipline-card.highlight h3,
+.discipline-card.highlight li {
+    color: white;
+}
+
+.discipline-card.highlight .discipline-note {
+    color: rgba(255,255,255,0.8);
+}
+
+.discipline-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.discipline-card h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.discipline-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.discipline-card li {
+    background: var(--color-bg-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    color: var(--color-text-primary);
+}
+
+.discipline-card.highlight li {
+    background: rgba(255,255,255,0.2);
+}
+
+.discipline-note {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.new-engineering {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.new-engineering h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+.new-engineering-grid {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.ne-item {
+    text-align: center;
+}
+
+.ne-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.ne-text {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* ===================================
+   校园风貌
+   =================================== */
+.campus-section {
+    background: white;
+}
+
+.campus-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.campus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.campus-card {
+    background: var(--color-bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.campus-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.campus-image {
+    height: 180px;
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campus-placeholder {
+    font-size: 4rem;
+}
+
+.campus-info {
+    padding: 1.5rem;
+}
+
+.campus-info h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.campus-tag {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.campus-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.school-symbols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.symbol-card {
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.symbol-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.symbol-card h3 {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.symbol-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.symbol-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* ===================================
+   知名校友
+   =================================== */
+.alumni-section {
+    background: linear-gradient(135deg, var(--color-bg-dark), #2A2035);
+    color: white;
+}
+
+.alumni-section .section-title {
+    color: white;
+}
+
+.alumni-section .section-subtitle {
+    color: rgba(255,255,255,0.7);
+}
+
+.alumni-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.alumni-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.alumni-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-5px);
+}
+
+.alumni-avatar {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.alumni-card h3 {
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.alumni-title {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+.alumni-achievement {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+}
+
+.alumni-legacy {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.legacy-item {
+    text-align: center;
+}
+
+.legacy-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+}
+
+.legacy-text {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ===================================
+   CTA区域
+   =================================== */
+.cta-section {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.cta-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: var(--color-primary);
+}
+
+.cta-buttons .btn-primary:hover {
+    background: var(--color-accent);
+    color: white;
+}
+
+.cta-buttons .btn-outline {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.cta-contact {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.cta-contact p {
+    margin: 0.25rem 0;
+}
+
+/* ===================================
+   页脚
+   =================================== */
+.footer {
+    background: var(--color-bg-dark);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 2rem;
+}
+
+.footer-logo .logo-text {
+    font-size: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.7);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+.footer-info {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-info p {
+    margin: 0.25rem 0;
+}
+
+/* ===================================
+   响应式设计
+   =================================== */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .title-cn {
+        font-size: 3.5rem;
+    }
+    
+    .hero-stats {
+        gap: 2rem;
+    }
+    
+    .stat-divider {
+        display: none;
+    }
+    
+    .timeline::before {
+        left: 50px;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(odd) {
+        flex-direction: row;
+    }
+    
+    .timeline-year {
+        width: 80px;
+        height: 80px;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        margin-left: 1.5rem;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-cn {
+        font-size: 2.5rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .title-en {
+        font-size: 0.875rem;
+    }
+    
+    .hero-motto {
+        font-size: 1.25rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .achievement-number .number-value {
+        font-size: 2.5rem;
+    }
+    
+    .ranking-badges {
+        gap: 1rem;
+    }
+    
+    .ranking-badge {
+        padding: 1rem 1.5rem;
+        min-width: 120px;
+    }
+    
+    .new-engineering-grid {
+        gap: 2rem;
+    }
+    
+    .alumni-legacy {
+        gap: 2rem;
+    }
+    
+    .cta-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1rem 4rem;
+    }
+    
+    .title-cn {
+        font-size: 2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .timeline-year {
+        width: 60px;
+        height: 60px;
+        font-size: 0.875rem;
+    }
+    
+    .achievements-grid,
+    .disciplines-grid,
+    .campus-grid,
+    .alumni-grid {
+        grid-template-columns: 1fr;
+    }
+}
