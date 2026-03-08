@@ -808,38 +808,151 @@ section {
 
 .school-symbols {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
 }
 
 .symbol-card {
     background: var(--color-bg-secondary);
-    padding: 2rem;
-    border-radius: 16px;
+    padding: 2.5rem;
+    border-radius: 20px;
     text-align: center;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.symbol-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.symbol-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(107, 63, 160, 0.2);
+}
+
+.symbol-card:hover::before {
+    opacity: 1;
+}
+
+.symbol-card.highlight-symbol {
+    background: linear-gradient(135deg, rgba(107, 63, 160, 0.05), rgba(212, 175, 55, 0.05));
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.symbol-card.highlight-symbol::before {
+    opacity: 1;
+}
+
+.symbol-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .symbol-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .symbol-card h3 {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    margin: 0;
 }
 
-.symbol-text {
+.symbol-content {
+    position: relative;
+}
+
+.symbol-text.main-text {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 2rem;
     color: var(--color-primary);
+    font-weight: 700;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.symbol-text.sub-text {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.symbol-divider {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    margin: 1.25rem auto;
 }
 
 .symbol-desc {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+/* 校徽图片样式 */
+.emblem-image {
+    margin: 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.official-emblem {
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    transition: var(--transition);
+    filter: drop-shadow(0 4px 12px rgba(107, 63, 160, 0.15));
+}
+
+.symbol-card:hover .official-emblem {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 20px rgba(107, 63, 160, 0.25));
+}
+
+/* 校歌样式 */
+.anthem-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.anthem-lyrics {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    border-left: 3px solid var(--color-accent);
+}
+
+.anthem-lyrics p {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    line-height: 1.8;
+    margin: 0.5rem 0;
+    font-style: italic;
 }
 
 /* ===================================
@@ -888,19 +1001,26 @@ section {
 }
 
 .alumni-avatar {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 1rem;
     border: 3px solid var(--color-accent);
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    flex-shrink: 0;
 }
 
 .alumni-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.alumni-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .alumni-card h3 {
