@@ -211,7 +211,7 @@ const campusData = {
     xianlin: {
         name: '仙林校区',
         tag: '主校区 · 现代化校园',
-        heroImage: 'https://lib.nju.edu.cn/__local/7/20/09/8F3565F3734E11C36C1CCBADE0D_DF39C712_9F037.jpg',
+        heroImage: 'https://www.nju.edu.cn/__local/8/5F/67/53B65D64FF67D627CDD2B0C1DB2_20C107F3_1B554.jpg',
         description: '仙林校区位于南京市栖霞区仙林大道163号，是南京大学的主校区，占地面积约3000亩。校区于2009年投入使用，拥有现代化的教学设施和优美的校园环境。',
         highlights: [
             '杜厦图书馆：总建筑面积5.3万平方米，是江苏省单体面积最大的高校图书馆',
@@ -229,7 +229,7 @@ const campusData = {
     gulou: {
         name: '鼓楼校区',
         tag: '历史校区 · 百年传承',
-        heroImage: 'http://pics4.baidu.com/feed/9f510fb30f2442a7af94b129e85c6d44d0130256.jpeg@f_auto?token=c9e95eae35e9c25b685f3f4c7f001a20',
+        heroImage: 'https://bkimg.cdn.bcebos.com/pic/4610b912c8fcc3cec3fdaf5ecc0fc188d43f87948a0e',
         description: '鼓楼校区位于南京市鼓楼区汉口路22号，是南京大学的发源地，承载着百年历史与文化传承。金陵大学旧址建筑群是全国重点文物保护单位。',
         highlights: [
             '金陵大学旧址：百年历史建筑群，中西合璧的建筑风格',
@@ -239,15 +239,15 @@ const campusData = {
         ],
         facilities: ['历史建筑群', '校史馆', '图书馆', '行政楼', '研究生院'],
         gallery: [
-            'http://pics3.baidu.com/feed/e824b899a9014c0865ac1b065e69bb077af4f49b.jpeg@f_auto?token=96077ac557781559c11406551aba74c6',
             'https://bkimg.cdn.bcebos.com/pic/4610b912c8fcc3cec3fdaf5ecc0fc188d43f87948a0e',
-            'https://bkimg.cdn.bcebos.com/pic/5882b2b7d0a20cf404ddf7d276094b36acaf9969'
+            'https://bkimg.cdn.bcebos.com/pic/5882b2b7d0a20cf404ddf7d276094b36acaf9969',
+            'https://bkimg.cdn.bcebos.com/pic/728da9773912b31bb05137c7a753217adab44bed4b83'
         ]
     },
     pukou: {
         name: '浦口校区',
         tag: '科研基地 · 创新发展',
-        heroImage: 'https://bkimg.cdn.bcebos.com/pic/509b9fcbb0a98ac052664f94',
+        heroImage: 'https://www.nju.edu.cn/__local/A/EB/E3/4BEB2C6B44C2949111317103513_2287F688_1C23B.jpg',
         description: '浦口校区位于南京市浦口区，是南京大学重要的科研基地和产学研合作平台，推动科技成果转化，服务区域经济发展。',
         highlights: [
             '产业技术研究院：推动科技成果转化的重要平台',
@@ -265,7 +265,7 @@ const campusData = {
     suzhou: {
         name: '苏州校区',
         tag: '新工科 · 未来引擎',
-        heroImage: 'https://pic.rmb.bdstatic.com/bjh/news/35b0a0eb2fb9c778f66d909a9f3ce2d9.jpeg',
+        heroImage: 'https://www.nju.edu.cn/__local/A/15/32/322F3C93A1585692E6C455E30AD_389D7373_4FB21F.jpg',
         description: '苏州校区位于苏州市高新区太湖科学城，是南京大学新工科建设的主阵地。总投资128亿元，一期工程已交付使用，聚焦人工智能、集成电路、能源资源等卡脖子领域。',
         highlights: [
             '10个新工科学院：智能科学与技术、集成电路、数字经济与管理等',
